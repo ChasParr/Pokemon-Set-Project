@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 const index = fs.readFileSync(`${__dirname}/../hosted/client.html`);
-const bundle =  fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
+const bundle = fs.readFileSync(`${__dirname}/../hosted/bundle.js`);
 const css = fs.readFileSync(`${__dirname}/../hosted/style.css`);
 
-//const users = {};
+// const users = {};
 const pokemonNames = [];
-const pokemon = {};
+// const pokemon = {};
 
 // get main page
 const getIndex = (request, response) => {
@@ -44,31 +44,32 @@ const respondMeta = (request, response, status) => {
 
 // get array of pokemon names
 const getNames = (request, response) => {
-    const responseObj = {
-        pokemonNames,
-    };
-    
-    return respond(request, response, 200, responseObj);
+  const responseObj = {
+    pokemonNames,
+  };
+
+  return respond(request, response, 200, responseObj);
 };
 
 const getNamesMeta = (request, response) => respondMeta(request, response, 200);
 
 // get specific pokemon data
+/*
 const getPokemon = (request, response, params) => {
-    // need to figure out how to get query params
-    if (pokemon[params.pokemon]){
-        const responseObj = {
-            pokemon: pokemon[params.pokemon]
-        };
-    }
-    
-    return respond(request, response, 200, responseObj);
-};
+  // need to figure out how to get query params
+  if (pokemon[params.pokemon]) {
+    const responseObj = {
+      pokemon: pokemon[params.pokemon],
+    };
+  }
 
-const addSet = () => {
-    
-}
-/* 
+  return respond(request, response, 200, responseObj);
+};
+*/
+// const addSet = (request, response) => {
+
+// };
+/*
 
 const addUser = (request, response, body) => {
   const responseObj = {
@@ -114,8 +115,9 @@ module.exports = {
   getIndex,
   getCss,
   getBundle,
-    getNames,
-    getPokemon,
+  getNames,
+  // getPokemon,
   notFound,
   notFoundMeta,
+  getNamesMeta,
 };

@@ -206,10 +206,10 @@ const init = () => {
     autocomplete(pokeName, pokemon);
     
     const setForm = document.querySelector("#setForm");
-    const submitSet = (e) => {
+    //const submitSet = (e) => {
         
-    }
-    setForm.addEventListener("submit", )
+    //}
+    //setForm.addEventListener("submit", )
 
 };
 
