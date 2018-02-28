@@ -1,91 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-  <title>PokeSets</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
+    <title>PokeSets</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="./bundle.js"></script>
 </head>
+
 <body>
-  <section id="top">
-      <h1>PokeSets</h1>
-  </section>
-  <section id="content">
-    <form id="setForm">
-        <div class="autocomplete" style="width:300px;">
-            <input id="pokeName" type="text" name="pokeName" placeholder="pokemon">
+    <section id="top">
+        <h1>PokeSets</h1>
+        <h2>Enter a Pokemon name to begin</h2>
+    </section>
+    <section id="content">
+        <form id="setForm" action="/addSet" method="post" autocomplete="off">
+            <div id="portrait"><img id="pic" src="media/pokeball.png" alt="pokemon portrait"></div>
+            <div class="column">
+                <div class="autocomplete">
+                    <input id="pokeName" type="text" name="pokeName" placeholder="pokemon" action="/getPokemon">
+                </div>
+                <br>
+                <div class="autocomplete">
+                    <input id="ability" type="text" name="ability" placeholder="ability">
+                </div>
+                <br>
+                <div class="autocomplete">
+                    <input id="item" type="text" name="item" placeholder="item">
+                </div>
+                <br>
+            </div>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>HP</th>
+                    <th>Atk</th>
+                    <th>Def</th>
+                    <th>SpA</th>
+                    <th>SpD</th>
+                    <th>Spe</th>
+                </tr>
+                <tr>
+                    <th>Base</th>
+                    <td><output class="base hp" value="0"></output></td>
+                    <td><output class="base atk" value="0"></output></td>
+                    <td><output class="base def" value="0"></output></td>
+                    <td><output class="base spa" value="0"></output></td>
+                    <td><output class="base spd" value="0"></output></td>
+                    <td><output class="base spe" value="0"></output></td>
+                </tr>
+                <tr id="ivs">
+                    <th>IVs</th>
+                    <td><input class="iv hp" type="number" name="hp" min="0" max="31" value="31"></td>
+                    <td><input class="iv atk" type="number" name="atk" min="0" max="31" value="31"></td>
+                    <td><input class="iv def" type="number" name="def" min="0" max="31" value="31"></td>
+                    <td><input class="iv spa" type="number" name="spa" min="0" max="31" value="31"></td>
+                    <td><input class="iv spd" type="number" name="spd" min="0" max="31" value="31"></td>
+                    <td><input class="iv spe" type="number" name="spe" min="0" max="31" value="31"></td>
+                </tr>
+                <tr id="evs">
+                    <th>EVs</th>
+                    <td><input class="ev hp" type="number" name="hp" min="0" max="252" step="4" value="0"></td>
+                    <td><input class="ev atk" type="number" name="atk" min="0" max="252" step="4" value="0"></td>
+                    <td><input class="ev def" type="number" name="def" min="0" max="252" step="4" value="0"></td>
+                    <td><input class="ev spa" type="number" name="spa" min="0" max="252" step="4" value="0"></td>
+                    <td><input class="ev spd" type="number" name="spd" min="0" max="252" step="4" value="0"></td>
+                    <td><input class="ev spe" type="number" name="spe" min="0" max="252" step="4" value="0"></td>
+                    <td class="indicator"><output id="evSum" value="0"></output>/510</td>
+                </tr>
+                <tr id="plus">
+                    <th>Positive</th>
+                    <td></td>
+                    <td><input class="pos atk" type="radio" name="pos" value="atk" checked="true"></td>
+                    <td><input class="pos def" type="radio" name="pos" value="def"></td>
+                    <td><input class="pos spa" type="radio" name="pos" value="spa"></td>
+                    <td><input class="pos spd" type="radio" name="pos" value="spd"></td>
+                    <td><input class="pos spe" type="radio" name="pos" value="spe"></td>
+                </tr>
+                <tr id="minus">
+                    <th>Negative</th>
+                    <td></td>
+                    <td><input class="neg atk" type="radio" name="neg" value="atk" checked="true"></td>
+                    <td><input class="neg def" type="radio" name="neg" value="def"></td>
+                    <td><input class="neg spa" type="radio" name="neg" value="spa"></td>
+                    <td><input class="neg spd" type="radio" name="neg" value="spd"></td>
+                    <td><input class="neg spe" type="radio" name="neg" value="spe"></td>
+                    <td class="indicator"><output id="nature"></output></td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td><output class="total hp" name="hp" value="0"></output></td>
+                    <td><output class="total atk" name="atk" value="0"></output></td>
+                    <td><output class="total def" name="def" value="0"></output></td>
+                    <td><output class="total spa" name="spa" value="0"></output></td>
+                    <td><output class="total spd" name="spd" value="0"></output></td>
+                    <td><output class="total spe" name="spe" value="0"></output></td>
+                </tr>
+            </table>
+            <div class="autocomplete">
+                <input class="move" type="text" name="move1" placeholder="move">
+            </div>
+            <div class="autocomplete">
+                <input class="move" type="text" name="move2" placeholder="move">
+            </div>
+            <br>
+            <div class="autocomplete">
+                <input class="move" type="text" name="move3" placeholder="move">
+            </div>
+            <div class="autocomplete">
+                <input class="move" type="text" name="move4" placeholder="move">
+            </div>
+            <br>
+            <input type="submit" value="Add Set">
+        </form>
+        <br>
+        <div id="setList">
         </div>
-        <table>
-            <tr>
-                <th></th>
-                <th>HP</th>
-                <th>Atk</th>
-                <th>Def</th>
-                <th>SpAtk</th>
-                <th>SpDef</th>
-                <th>Speed</th>
-            </tr>
-            <tr>
-                <th>Base</th>
-                <td><span id=hpBase></span></td>
-                <td><span id=atkBase></span></td>
-                <td><span id=defBase></span></td>
-                <td><span id=spAtkBase></span></td>
-                <td><span id=spDefBase></span></td>
-                <td><span id=speedBase></span></td>
-            </tr>
-            <tr id="ivs">
-                <th>IVs</th>
-                <td><input class="iv" type="number" name="hp" min="0" max="31" value="31"></td>
-                <td><input class="iv" type="number" name="atk" min="0" max="31" value="31"></td>
-                <td><input class="iv" type="number" name="def" min="0" max="31" value="31"></td>
-                <td><input class="iv" type="number" name="spa" min="0" max="31" value="31"></td>
-                <td><input class="iv" type="number" name="spd" min="0" max="31" value="31"></td>
-                <td><input class="iv" type="number" name="spe" min="0" max="31" value="31"></td>
-            </tr>
-            <tr id="evs">
-                <th>EVs</th>
-                <td><input class="ev" type="number" name="hp" min="0" max="252" step="4" value="0"></td>
-                <td><input class="ev" type="number" name="atk" min="0" max="252" step="4" value="0"></td>
-                <td><input class="ev" type="number" name="def" min="0" max="252" step="4" value="0"></td>
-                <td><input class="ev" type="number" name="spa" min="0" max="252" step="4" value="0"></td>
-                <td><input class="ev" type="number" name="spd" min="0" max="252" step="4" value="0"></td>
-                <td><input class="ev" type="number" name="spe" min="0" max="252" step="4" value="0"></td>
-                <td id="evSum">/510</td>
-            </tr>
-            <tr id="plus">
-                <th>Positive</th>
-                <td></td>
-                <td><input type="radio" name="pos" value="atk" checked="true"></td>
-                <td><input type="radio" name="pos" value="def"></td>
-                <td><input type="radio" name="pos" value="spa"></td>
-                <td><input type="radio" name="pos" value="spd"></td>
-                <td><input type="radio" name="pos" value="spe"></td>
-            </tr>
-            <tr id="minus">
-                <th>Negative</th>
-                <td></td>
-                <td><input type="radio" name="neg" value="atk" checked="true"></td>
-                <td><input type="radio" name="neg" value="def"></td>
-                <td><input type="radio" name="neg" value="spa"></td>
-                <td><input type="radio" name="neg" value="spd"></td>
-                <td><input type="radio" name="neg" value="spe"></td>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <td><span id=hpTotal></span></td>
-                <td><span id=atkTotal></span></td>
-                <td><span id=defTotal></span></td>
-                <td><span id=spAtkTotal></span></td>
-                <td><span id=spDefTotal></span></td>
-                <td><span id=speedTotal></span></td>
-            </tr>
-        </table>
-        <input type="submit">
-    </form>
-    <li id="setList">
-    </li>
-  </section>
+    </section>
 </body>
+
 </html>

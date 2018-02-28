@@ -22,8 +22,14 @@ const onRequest = (request, response) => {
         case '/bundle.js':
           responseHandler.getBundle(request, response);
           break;
+        case '/media/pokeball.png':
+          responseHandler.getPokeball(request, response);
+          break;
         case '/pokeNames':
           responseHandler.getNames(request, response);
+          break;
+        case '/itemNames':
+          responseHandler.getItems(request, response);
           break;
         case '/pokemon':
           responseHandler.getPokemon(request, response, params);
@@ -37,6 +43,12 @@ const onRequest = (request, response) => {
       switch (parsedUrl.pathname) {
         case '/pokeNames':
           responseHandler.getNamesMeta(request, response);
+          break;
+        case '/itemNames':
+          responseHandler.getItemsMeta(request, response);
+          break;
+        case '/pokemon':
+          responseHandler.getPokemonMeta(request, response);
           break;
         default:
           responseHandler.notFoundMeta(request, response);

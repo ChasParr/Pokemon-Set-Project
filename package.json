@@ -1,32 +1,35 @@
 {
-  "name": "pokemon-set-project",
-  "version": "1.0.0",
-  "description": "A repository for competetive pokemon sets",
-  "main": "src/server.js",
-  "scripts": {
-    "start": "node ./src/server.js",
-    "pretest": "eslint ./src --fix",
-    "test": "echo \"tests complete\"",
-    "nodemon": "nodemon --watch ./src ./src/server.js",
-    "build": "babel ./client --out-file ./hosted/bundle.js",
-    "watch": "babel --watch ./client --out-file ./hosted/bundle.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChasParr/Pokemon-Set-Project.git"
-  },
-  "author": "Chas Parr",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChasParr/Pokemon-Set-Project/issues"
-  },
-  "homepage": "https://github.com/ChasParr/Pokemon-Set-Project#readme",
-  "devDependencies": {
-    "eslint": "^4.16.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "nodemon": "^1.14.12"
-  }
+    "name": "pokemon-set-project",
+    "version": "1.0.0",
+    "description": "A repository for competetive pokemon sets",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node ./src/server.js",
+        "pretest": "eslint ./src --fix",
+        "test": "echo \"tests complete\"",
+        "nodemon": "nodemon --watch ./src ./src/server.js",
+        "build": "babel ./client --out-file ./hosted/bundle.js",
+        "watch": "babel --watch ./client --out-file ./hosted/bundle.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ChasParr/Pokemon-Set-Project.git"
+    },
+    "author": "Chas Parr",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ChasParr/Pokemon-Set-Project/issues"
+    },
+    "homepage": "https://github.com/ChasParr/Pokemon-Set-Project#readme",
+    "devDependencies": {
+        "eslint": "^4.16.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-plugin-import": "^2.8.0",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "nodemon": "^1.14.12"
+    },
+    "dependencies": {
+        "pokedex-promise-v2": "^3.1.1"
+    }
 }
